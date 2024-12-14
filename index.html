@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pytho AI - Learn Python</title>
+    <title>Pytho AI - Your Advanced Python Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Pytho AI</h1>
-        <p>Your Python Learning Assistant</p>
+        <p>Your Advanced Python Learning Assistant</p>
     </header>
     <main>
         <div class="chat-container">
             <div id="chatbox"></div>
             <div class="input-container">
-                <input type="text" id="userInput" placeholder="Type your question...">
+                <input type="text" id="userInput" placeholder="Ask anything about Python..." onkeydown="handleKey(event)">
                 <button onclick="sendMessage()">Send</button>
             </div>
         </div>
