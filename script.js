@@ -1,46 +1,40 @@
+const chatbox = document.getElementById("chatbox");
+const userInput = document.getElementById("userInput");
 
-document.addEventListener("DOMContentLoaded", () => {
-    const chatBox = document.getElementById("chat-box");
-    const userInput = document.getElementById("user-input");
-    const sendBtn = document.getElementById("send-btn");
+function appendMessage(sender, text) {
+    const message = document.createElement("div");
+    message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatbox.appendChild(message);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
 
-    const appendMessage = (message, sender) => {
-        const msgDiv = document.createElement("div");
-        msgDiv.classList.add("message", sender);
-        msgDiv.textContent = message;
-        chatBox.appendChild(msgDiv);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    };
+function sendMessage() {
+    const question = userInput.value.trim();
+    if (question) {
+        appendMessage("You", question);
+        userInput.value = "";
+        respondToQuestion(question);
+    }
+}
 
-    const mockAIResponse = (userMessage) => {
-        // Simple simulated responses for demonstration
-        if (userMessage.toLowerCase().includes("what is python")) {
-            return "Python is a versatile programming language that's widely used for web development, data analysis, AI, and more.";
-        } else if (userMessage.toLowerCase().includes("how to create a function")) {
-            return "In Python, you can create a function using the 'def' keyword. For example: \ndef my_function():\n    print('Hello, World!')";
-        } else if (userMessage.toLowerCase().includes("error")) {
-            return "If you're encountering an error, please share the error message, and I'll help debug it!";
-        } else {
-            return "I'm not sure about that yet, but I'm here to help you learn Python step by step. Can you try rephrasing your question?";
-        }
-    };
+function respondToQuestion(question) {
+    let response;
 
-    sendBtn.addEventListener("click", () => {
-        const userMessage = userInput.value.trim();
-        if (userMessage) {
-            appendMessage(userMessage, "user");
-            userInput.value = "";
+    switch (question.toLowerCase()) {
+        case "hi":
+        case "hello":
+            response = "Hello! How can I assist you in learning Python?";
+            break;
+        case "what is python?":
+            response = "Python is a versatile, high-level programming language that is widely used for web development, data analysis, artificial intelligence, scientific computing, and more.";
+            break;
+        case "print hello":
+            response = "To print 'hello' in Python, use: <br><code>print('hello')</code>";
+            break;
+        default:
+            response = "I'm still learning! Please ask questions like 'What is Python?' or 'Print hello'.";
+            break;
+    }
 
-            setTimeout(() => {
-                const aiResponse = mockAIResponse(userMessage);
-                appendMessage(aiResponse, "assistant");
-            }, 500);
-        }
-    });
-
-    userInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            sendBtn.click();
-        }
-    });
-});
+    appendMessage("Pytho AI", response);
+}

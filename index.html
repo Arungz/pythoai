@@ -1,31 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pytho AI - Python Learning Assistant</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pytho AI - Learn Python</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Pytho AI</h1>
-            <p>Your Python Learning Assistant</p>
-        </header>
-        <main>
-            <div id="chat-box" class="chat-box">
-                <div class="message assistant">Hello! I'm Pytho AI. How can I help you learn Python today?</div>
+    <header>
+        <h1>Pytho AI</h1>
+        <p>Your Python Learning Assistant</p>
+    </header>
+    <main>
+        <div class="chat-container">
+            <div id="chatbox"></div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Type your question...">
+                <button onclick="sendMessage()">Send</button>
             </div>
-            <div class="input-area">
-                <input type="text" id="user-input" placeholder="Type your question here..." />
-                <button id="send-btn">Send</button>
-            </div>
-        </main>
-        <footer>
-            <p>Powered by Pytho AI</p>
-        </footer>
-    </div>
+        </div>
+    </main>
+    <footer>
+        <p>Powered by Pytho AI</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
