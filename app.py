@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Allow frontend to interact with backend
 
 # Replace this with your own OpenAI API key
-openai.api_key = "cab8c58cefaf48d996592ea582be92bb"
+openai.api_key = "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"
 
 @app.route("/ask", methods=["POST"])
 def ask():
